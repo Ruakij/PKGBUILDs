@@ -1,0 +1,35 @@
+# Maintainer: Ruakij <ruakij@ruekov.eu>
+pkgname=kde_screensaver_suspendscreen-git
+pkgver=v1.2.4.r0.g2e069fc
+pkgrel=1
+epoch=
+pkgdesc="KDE X11 event-script to have different screen-timeouts when session is locked vs unlocked"
+arch=('any')
+url="https://github.com/Ruakij/kde_screensaver_suspendscreen"
+license=('AGPL3')
+groups=()
+depends=('xorg-xset' 'kconfig')
+makedepends=('git')
+checkdepends=()
+optdepends=()
+provides=("kde_screensaver_suspendscreen")
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=("$pkgname::git+https://github.com/Ruakij/kde_screensaver_suspendscreen")
+noextract=()
+sha256sums=('SKIP')
+validpgpkeys=()
+
+pkgver() { 
+    cd "$pkgname"
+    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package() {
+    cd "$pkgname"
+	make DESTDIR="$pkgdir/${HOME}/" install
+}
