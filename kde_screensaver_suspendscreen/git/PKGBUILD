@@ -1,4 +1,5 @@
 # Maintainer: Ruakij <ruakij@ruekov.eu>
+# FIXME: This doesnt install as Build-files cannot/should not edit files in home-directories. Some other way has to be found.
 pkgname=kde_screensaver_suspendscreen-git
 pkgver=v1.2.4.r0.g2e069fc
 pkgrel=1
